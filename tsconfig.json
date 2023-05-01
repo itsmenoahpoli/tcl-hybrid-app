@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "lib": ["DOM", "ESNext"],
+    "jsx": "react-native",
+    "moduleResolution": "node",
+    "target": "ESNext",
+    "baseUrl": "./src"
+  },
+  "extends": "expo/tsconfig.base",
+  "exclude": ["node_modules", "babel.config.js"]
+}
