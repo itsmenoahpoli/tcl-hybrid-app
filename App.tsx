@@ -1,6 +1,6 @@
 import React from "react";
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { View, Text, StyleSheet, StatusBar } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
@@ -28,19 +28,19 @@ const App: React.FC = () => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar style="auto" />
+    <SafeAreaProvider>
       <View style={styles.container} onLayout={onLayoutRootView}>
+        <StatusBar backgroundColor="rgba(0, 0, 0, 0.85)" />
         <AppNavigation />
       </View>
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: "transparent",
   },
 });
 
