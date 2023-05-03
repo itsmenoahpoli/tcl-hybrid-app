@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, StatusBar } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
@@ -15,6 +15,7 @@ const App: React.FC = () => {
     "Lato-Regular": require("./assets/fonts/Lato-Regular.ttf"),
     "Lato-Bold": require("./assets/fonts/Lato-Bold.ttf"),
     "Lato-BoldItalic": require("./assets/fonts/Lato-BoldItalic.ttf"),
+    "Lato-Black": require("./assets/fonts/Lato-Black.ttf"),
   });
 
   const onLayoutRootView = React.useCallback(async () => {
@@ -30,7 +31,6 @@ const App: React.FC = () => {
   return (
     <SafeAreaProvider>
       <View style={styles.container} onLayout={onLayoutRootView}>
-        <StatusBar backgroundColor="rgba(0, 0, 0, 0.85)" />
         <AppNavigation />
       </View>
     </SafeAreaProvider>
@@ -40,7 +40,7 @@ const App: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "transparent",
+    backgroundColor: "white",
   },
 });
 
