@@ -2,7 +2,8 @@ import React from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-import { BaseLayout } from "components";
+import { BaseLayout, BrandLogo } from "components";
+import { COLORS } from "theme";
 import { StackParamsList } from "types/navigation";
 
 type Props = NativeStackScreenProps<StackParamsList, "WELCOME_SCREEN">;
@@ -12,10 +13,10 @@ export const WelcomeScreen: React.FC<Props> = (props) => {
     <BaseLayout>
       <View style={styles.container}>
         <View style={styles.mainContent}>
-          <View style={styles.logo} />
+          <BrandLogo type="submain" />
+          {/* <View style={styles.logo} /> */}
           <Text style={styles.welcomeText}>Welcome to</Text>
-          <Text style={styles.welcomeText}>the new</Text>
-          <Text style={styles.titleText}>MF App</Text>
+          <Text style={styles.titleText}>The Coin Life</Text>
           <Text style={styles.subTitle}>
             Offers a wide range of investment opportunities
           </Text>
@@ -30,10 +31,10 @@ export const WelcomeScreen: React.FC<Props> = (props) => {
               <Text style={styles.buttonLabel}>Login</Text>
             </Pressable>
             <Pressable
-              style={styles.button}
+              style={styles.buttonRegister}
               onPress={() => props.navigation.navigate("REGISTER_SCREEN")}
             >
-              <Text style={styles.buttonLabel}>Register</Text>
+              <Text style={styles.buttonRegisterLabel}>Register</Text>
             </Pressable>
           </View>
         </View>
@@ -61,14 +62,14 @@ const styles = StyleSheet.create({
   welcomeText: {
     color: "#5c5c5c",
     fontSize: 28,
-    fontFamily: "Lato-Bold",
+    fontFamily: "Lato-Regular",
+    marginBottom: 8,
   },
   titleText: {
     color: "#464646",
-    fontSize: 40,
+    fontSize: 38,
     fontFamily: "Lato-Black",
-    marginTop: 10,
-    marginBottom: 30,
+    marginBottom: 20,
   },
   subTitle: {
     color: "#7c7c7c",
@@ -78,21 +79,45 @@ const styles = StyleSheet.create({
   },
   buttonsContainer: {
     width: "100%",
-    marginTop: 120,
+    marginTop: 80,
     alignItems: "center",
   },
   button: {
-    backgroundColor: "#464646",
+    backgroundColor: COLORS.primary,
     width: "100%",
-    height: 50,
-    borderRadius: 8,
-    marginBottom: 15,
+    height: 60,
+    borderRadius: 15,
+    marginBottom: 25,
     justifyContent: "center",
     alignItems: "center",
   },
   buttonLabel: {
     fontSize: 16,
-    fontFamily: "Lato-Regular",
+    fontFamily: "Lato-Bold",
     color: "#fff",
+  },
+  buttonRegister: {
+    backgroundColor: "#fcfcfc",
+    width: "100%",
+    height: 60,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: "#eee",
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#ccc",
+    shadowOffset: {
+      width: 0,
+      height: 0.5,
+    },
+    shadowOpacity: 0.035,
+    shadowRadius: 1,
+
+    elevation: 2,
+  },
+  buttonRegisterLabel: {
+    fontSize: 16,
+    fontFamily: "Lato-Bold",
+    color: "#464646",
   },
 });

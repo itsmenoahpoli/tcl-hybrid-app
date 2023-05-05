@@ -14,10 +14,10 @@ export const storeItem = async (itemKey: string, data: any): Promise<any> => {
 
 export const getItem = async (itemKey: string): Promise<any> => {
   try {
-    // await AsyncStorage.setItem(
-    //   "@username",
-    //   JSON.stringify({ username: "MF 006926" })
-    // );
+    await AsyncStorage.setItem(
+      "@username",
+      JSON.stringify({ username: "MF 006926" })
+    );
     const data: any = await AsyncStorage.getItem("@" + itemKey);
     return data ? JSON.parse(data) : null;
   } catch (error) {

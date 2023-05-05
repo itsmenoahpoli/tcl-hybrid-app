@@ -2,6 +2,8 @@ import React from "react";
 import { View, Text, TextInput, Pressable, StyleSheet } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
+import { COLORS } from "theme";
+
 type Props = {
   formType: "" | "fresh-login" | "remembered-login";
 };
@@ -82,10 +84,10 @@ const styles = StyleSheet.create({
     fontFamily: "Lato-Regular",
   },
   loginButton: {
-    backgroundColor: "#464646",
+    backgroundColor: COLORS.primary,
     width: "100%",
-    height: 50,
-    borderRadius: 8,
+    height: 60,
+    borderRadius: 20,
     marginTop: 20,
     justifyContent: "center",
     alignItems: "center",

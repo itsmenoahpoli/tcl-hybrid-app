@@ -5,6 +5,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { BaseLayout, LoginForm } from "components";
 import { StackParamsList } from "types/navigation";
 import * as storage from "libs/async-storage.lib";
+import * as secure_data from "libs/secure-data.lib";
 
 type Props = NativeStackScreenProps<StackParamsList, "LOGIN_SCREEN">;
 type FormTypes = "" | "fresh-login" | "remembered-login";
@@ -45,18 +46,18 @@ export const LoginScreen: React.FC<Props> = (props) => {
     <BaseLayout hasBackButton>
       <View style={styles.container}>
         <View style={styles.mainContent}>
-          <View
-            style={
-              formType === "remembered-login"
-                ? styles.logo
-                : styles.miniCenteredLogo
-            }
-          />
+          <View style={styles.avatar}>
+            <Text style={styles.avatarLabel}>PP</Text>
+          </View>
 
           {formType === "remembered-login" ? (
             <>
-              <Text style={styles.welcomeText}>Welcome</Text>
-              <Text style={styles.titleText}>MF 006926</Text>
+              <Text style={styles.welcomeText}>Welcome back,</Text>
+              <Text style={styles.titleText}>
+                {secure_data.maskName("Patrick") +
+                  " " +
+                  secure_data.maskName("Policarpio")}
+              </Text>
             </>
           ) : null}
 
@@ -76,29 +77,33 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: "25%",
   },
-  logo: {
-    width: 72,
-    height: 72,
-    borderRadius: 36,
-    backgroundColor: "#ccc",
-    marginBottom: 30,
-  },
-  miniCenteredLogo: {
+  avatar: {
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: "#ccc",
+    marginBottom: 10,
+    backgroundColor: "#5e0b24",
     alignSelf: "center",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  avatarLabel: {
+    fontFamily: "Lato-Bold",
+    fontSize: 18,
+    color: "#fff",
   },
   welcomeText: {
     color: "#5c5c5c",
-    fontSize: 28,
+    fontSize: 18,
     fontFamily: "Lato-Bold",
+    textAlign: "center",
+    marginBottom: 5,
   },
   titleText: {
     color: "#464646",
     fontSize: 40,
-    fontFamily: "Lato-Black",
-    marginTop: 10,
+    fontFamily: "Lato-Bold",
+    textAlign: "center",
+    marginBottom: 20,
   },
 });
