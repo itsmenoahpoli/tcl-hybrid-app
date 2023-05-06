@@ -93,8 +93,8 @@ const styles = StyleSheet.create({
 		alignItems: "flex-end",
 	},
 	forgotPasswordButtonLabel: {
-		color: "#77a6f2",
 		fontFamily: "Lato-Regular",
+		color: "#77a6f2",
 	},
 	loginButton: {
 		backgroundColor: COLORS.primary,

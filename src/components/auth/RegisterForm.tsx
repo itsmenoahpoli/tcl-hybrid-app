@@ -1,12 +1,16 @@
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { View, TextInput, Text, Pressable, StyleSheet } from "react-native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 import { COLORS } from "theme";
+import { StackParamsList } from "types/navigation";
 
 type Props = {};
 
 export const RegisterForm: React.FC<Props> = (props) => {
+	const navigation = useNavigation<NativeStackNavigationProp<StackParamsList>>();
 	const [isAgreed, setIsAgreed] = React.useState<boolean>(false);
 
 	const handleAgreed = (): void => {
@@ -33,11 +37,9 @@ export const RegisterForm: React.FC<Props> = (props) => {
 			<View style={styles.inputContainer}>
 				<TextInput style={styles.inputBox} placeholder="Confirm Password" />
 			</View>
-			<View
-				style={{ ...styles.inputContainer, ...styles.inputContainerCheckbox }}
-			>
+			<View style={{ ...styles.inputContainer, ...styles.inputContainerCheckbox }}>
 				<BouncyCheckbox
-					fillColor="#464646"
+					fillColor={COLORS.primary}
 					unfillColor="#fff"
 					size={20}
 					innerIconStyle={{ borderRadius: 4 }}
@@ -47,7 +49,14 @@ export const RegisterForm: React.FC<Props> = (props) => {
 					onPress={handleAgreed}
 				/>
 				<Text style={styles.inputContainerCheckboxLabel}>
-					I have read and agree to TCL's Term of Service and Privacy Policy
+					I have read and agree to TCL's{" "}
+					<Text style={styles.linkLabel} onPress={() => navigation.navigate("TERMS_OF_SERVICE_SCREEN")}>
+						Term of Service
+					</Text>{" "}
+					and &nbsp;
+					<Text style={styles.linkLabel} onPress={() => navigation.navigate("PRIVACY_POLICY_SCREEN")}>
+						Privacy Policy.
+					</Text>
 				</Text>
 			</View>
 
@@ -100,5 +109,10 @@ const styles = StyleSheet.create({
 		fontSize: 16,
 		fontFamily: "Lato-Regular",
 		color: "#fff",
+	},
+	linkLabel: {
+		fontSize: 14,
+		fontFamily: "Lato-Regular",
+		color: "#77a6f2",
 	},
 });

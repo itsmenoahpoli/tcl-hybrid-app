@@ -1,17 +1,21 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { View, Pressable, StyleSheet } from "react-native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { View, Pressable, ScrollView, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { MaterialIcons } from "@expo/vector-icons";
 
-interface Props {
+import { StackParamsList } from "types/navigation";
+
+type Props = {
 	children: React.ReactNode;
 	hasBackButton?: boolean;
-}
+	isScrollable?: boolean;
+};
 
 export const BaseLayout = (props: Props) => {
-	const navigation = useNavigation();
+	const navigation = useNavigation<NativeStackNavigationProp<StackParamsList>>();
 
 	const handleGoBack = (): void => {
 		navigation.goBack();
@@ -21,16 +25,18 @@ export const BaseLayout = (props: Props) => {
 		<React.Fragment>
 			<SafeAreaView style={styles.container}>
 				<StatusBar style="auto" />
-				<View style={styles.container}>
-					{props.hasBackButton ? (
-						<View style={styles.backContainer}>
-							<Pressable onPress={handleGoBack}>
-								<MaterialIcons name="keyboard-arrow-left" size={30} color="#464646" />
-							</Pressable>
-						</View>
-					) : null}
-					{props.children}
-				</View>
+				<ScrollView scrollEnabled={props.isScrollable ?? false}>
+					<View style={styles.container}>
+						{props.hasBackButton ? (
+							<View style={styles.backContainer}>
+								<Pressable onPress={handleGoBack}>
+									<MaterialIcons name="keyboard-arrow-left" size={30} color="#464646" />
+								</Pressable>
+							</View>
+						) : null}
+						{props.children}
+					</View>
+				</ScrollView>
 			</SafeAreaView>
 		</React.Fragment>
 	);
@@ -40,6 +46,9 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: "white",
+	},
+	scrollContainer: {
+		marginBottom: 30,
 	},
 	backContainer: {
 		paddingTop: 30,

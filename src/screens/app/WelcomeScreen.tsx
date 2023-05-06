@@ -17,23 +17,13 @@ export const WelcomeScreen: React.FC<Props> = (props) => {
 					{/* <View style={styles.logo} /> */}
 					<Text style={styles.welcomeText}>Welcome to</Text>
 					<Text style={styles.titleText}>The Coin Life</Text>
-					<Text style={styles.subTitle}>
-						Offers a wide range of investment opportunities
-					</Text>
-					<Text style={styles.subTitle}>
-						to help you achieve your financial goals
-					</Text>
+					<Text style={styles.subTitle}>Offers a wide range of investment opportunities</Text>
+					<Text style={styles.subTitle}>to help you achieve your financial goals</Text>
 					<View style={styles.buttonsContainer}>
-						<Pressable
-							style={styles.button}
-							onPress={() => props.navigation.navigate("LOGIN_SCREEN")}
-						>
+						<Pressable style={styles.button} onPress={() => props.navigation.navigate("LOGIN_SCREEN")}>
 							<Text style={styles.buttonLabel}>Login</Text>
 						</Pressable>
-						<Pressable
-							style={styles.buttonRegister}
-							onPress={() => props.navigation.navigate("REGISTER_SCREEN")}
-						>
+						<Pressable style={styles.buttonRegister} onPress={() => props.navigation.navigate("REGISTER_SCREEN")}>
 							<Text style={styles.buttonRegisterLabel}>Register</Text>
 						</Pressable>
 					</View>
@@ -87,7 +77,7 @@ const styles = StyleSheet.create({
 		width: "100%",
 		height: 60,
 		borderRadius: 15,
-		marginBottom: 25,
+		marginBottom: 15,
 		justifyContent: "center",
 		alignItems: "center",
 	},
@@ -110,7 +100,7 @@ const styles = StyleSheet.create({
 			width: 0,
 			height: 0.5,
 		},
-		shadowOpacity: 0.035,
+		shadowOpacity: 1,
 		shadowRadius: 1,
 
 		elevation: 2,

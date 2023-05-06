@@ -5,35 +5,33 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import type { StackParamsList } from "types/navigation.d";
 import {
-  WelcomeScreen,
-  LoginScreen,
-  RegisterScreen,
-  ForgotPasswordScreen,
-  HomeScreen,
+	WelcomeScreen,
+	LoginScreen,
+	RegisterScreen,
+	ForgotPasswordScreen,
+	TermsOfServiceScreen,
+	PrivacyPolicyScreen,
+	HomeScreen,
 } from "screens/app";
 
 const { Navigator, Screen } = createNativeStackNavigator<StackParamsList>();
 
 const NAVIGATOR_OPTS = {
-  headerShown: false,
+	headerShown: false,
 };
 
 export const AppNavigation: React.FC = () => {
-  return (
-    <NavigationContainer>
-      <Navigator
-        screenOptions={NAVIGATOR_OPTS}
-        initialRouteName="WELCOME_SCREEN"
-      >
-        <Screen name="WELCOME_SCREEN" component={WelcomeScreen} />
-        <Screen name="LOGIN_SCREEN" component={LoginScreen} />
-        <Screen name="REGISTER_SCREEN" component={RegisterScreen} />
-        <Screen
-          name="FORGOT_PASSWORD_SCREEN"
-          component={ForgotPasswordScreen}
-        />
-        <Screen name="HOME_SCREEN" component={HomeScreen} />
-      </Navigator>
-    </NavigationContainer>
-  );
+	return (
+		<NavigationContainer>
+			<Navigator screenOptions={NAVIGATOR_OPTS} initialRouteName="WELCOME_SCREEN">
+				<Screen name="WELCOME_SCREEN" component={WelcomeScreen} />
+				<Screen name="LOGIN_SCREEN" component={LoginScreen} />
+				<Screen name="REGISTER_SCREEN" component={RegisterScreen} />
+				<Screen name="FORGOT_PASSWORD_SCREEN" component={ForgotPasswordScreen} />
+				<Screen name="TERMS_OF_SERVICE_SCREEN" component={TermsOfServiceScreen} />
+				<Screen name="PRIVACY_POLICY_SCREEN" component={PrivacyPolicyScreen} />
+				<Screen name="HOME_SCREEN" component={HomeScreen} />
+			</Navigator>
+		</NavigationContainer>
+	);
 };
