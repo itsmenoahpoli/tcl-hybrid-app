@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-import { BaseLayout, LoginForm } from "components";
+import { BaseLayout, RegisterForm } from "components";
 import { StackParamsList } from "types/navigation";
 
 type Props = NativeStackScreenProps<StackParamsList, "REGISTER_SCREEN">;
@@ -13,6 +13,7 @@ export const RegisterScreen: React.FC<Props> = (props) => {
       <View style={styles.container}>
         <View style={styles.mainContent}>
           <Text style={styles.titleText}>Register</Text>
+          <RegisterForm />
         </View>
       </View>
     </BaseLayout>
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
   },
   mainContent: {
     flex: 1,
-    paddingHorizontal: 20,
+    paddingHorizontal: 30,
     paddingTop: "10%",
   },
   titleText: {

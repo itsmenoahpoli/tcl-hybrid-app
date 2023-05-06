@@ -3,6 +3,7 @@
  */
 export { LoginScreen } from "screens/app/auth/LoginScreen";
 export { RegisterScreen } from "screens/app/auth/RegisterScreen";
+export { ForgotPasswordScreen } from "screens/app/auth/ForgotPasswordScreen";
 
 /**
  * WELCOME SCREEN

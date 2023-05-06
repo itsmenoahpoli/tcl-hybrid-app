@@ -8,6 +8,7 @@ import {
   WelcomeScreen,
   LoginScreen,
   RegisterScreen,
+  ForgotPasswordScreen,
   HomeScreen,
 } from "screens/app";
 
@@ -27,6 +28,10 @@ export const AppNavigation: React.FC = () => {
         <Screen name="WELCOME_SCREEN" component={WelcomeScreen} />
         <Screen name="LOGIN_SCREEN" component={LoginScreen} />
         <Screen name="REGISTER_SCREEN" component={RegisterScreen} />
+        <Screen
+          name="FORGOT_PASSWORD_SCREEN"
+          component={ForgotPasswordScreen}
+        />
         <Screen name="HOME_SCREEN" component={HomeScreen} />
       </Navigator>
     </NavigationContainer>
