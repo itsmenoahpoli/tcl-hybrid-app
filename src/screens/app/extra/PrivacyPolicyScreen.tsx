@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
 	textContent: {
 		fontFamily: "Lato-Regular",
 		fontSize: 15,
+		color: "#565656",
 		lineHeight: 25,
 		marginBottom: 30,
 	},
