@@ -2,38 +2,31 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-import { BaseLayout, LoginForm } from "components";
+import { BaseLayout, BrandLogo, LoginForm } from "components";
 import { StackParamsList } from "types/navigation";
+import { Credentials } from "types/auth";
 import * as storage from "libs/async-storage.lib";
 import * as secure_data from "libs/secure-data.lib";
 
 type Props = NativeStackScreenProps<StackParamsList, "LOGIN_SCREEN">;
 type FormTypes = "" | "fresh-login" | "remembered-login";
-type FormState = {
-	username: string;
-	password: string;
-};
 
 export const LoginScreen: React.FC<Props> = (props) => {
 	const [formType, setFormType] = React.useState<FormTypes>("");
-	const [form, setForm] = React.useState<FormState>({
-		username: "",
-		password: "",
-	});
+	const [username, setUsername] = React.useState<string>("");
 
-	const handleSignIn = async (): Promise<void> => {
+	const handleSignIn = async (credentials: Credentials): Promise<void> => {
 		props.navigation.navigate("HOME_SCREEN");
 	};
 
 	const getSavedAccount = async (): Promise<void> => {
-		await storage.getItem("username").then((r: any) => {
-			if (r !== null && r.hasOwnProperty("username")) {
+		await storage.getItem("@user").then((r: any) => {
+			console.log(r);
+			if (r !== null) {
 				setFormType("remembered-login");
-				setForm({ ...form, username: r.username });
-
+				setUsername(r.username);
 				return;
 			}
-
 			setFormType("fresh-login");
 		});
 	};
@@ -46,22 +39,25 @@ export const LoginScreen: React.FC<Props> = (props) => {
 		<BaseLayout hasBackButton>
 			<View style={styles.container}>
 				<View style={styles.mainContent}>
-					<View style={styles.avatar}>
-						<Text style={styles.avatarLabel}>PP</Text>
-					</View>
+					{formType === "fresh-login" ? (
+						<View style={styles.centerLogo}>
+							<BrandLogo type="submain" height={150} />
+						</View>
+					) : null}
 
 					{formType === "remembered-login" ? (
 						<>
+							<View style={styles.avatar}>
+								<Text style={styles.avatarLabel}>PP</Text>
+							</View>
 							<Text style={styles.welcomeText}>Welcome back,</Text>
 							<Text style={styles.titleText}>
-								{secure_data.maskName("Patrick") +
-									" " +
-									secure_data.maskName("Policarpio")}
+								{secure_data.maskName("Patrick") + " " + secure_data.maskName("Policarpio")}
 							</Text>
 						</>
 					) : null}
 
-					<LoginForm formType={formType} handleSignIn={handleSignIn} />
+					<LoginForm formType={formType} handleSignIn={handleSignIn} username={username} />
 				</View>
 			</View>
 		</BaseLayout>
@@ -76,6 +72,9 @@ const styles = StyleSheet.create({
 		flex: 1,
 		paddingHorizontal: 30,
 		paddingTop: "25%",
+	},
+	centerLogo: {
+		alignItems: "center",
 	},
 	avatar: {
 		width: 60,

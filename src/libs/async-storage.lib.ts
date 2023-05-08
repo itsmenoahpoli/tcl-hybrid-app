@@ -6,7 +6,7 @@ export const getItemKeys = async () => {
 
 export const storeItem = async (itemKey: string, data: any): Promise<any> => {
 	try {
-		await AsyncStorage.setItem("@" + itemKey, JSON.stringify({ data }));
+		await AsyncStorage.setItem(itemKey, JSON.stringify({ data }));
 	} catch (error) {
 		console.log("Async-storage-error: Store item");
 	}
@@ -14,7 +14,7 @@ export const storeItem = async (itemKey: string, data: any): Promise<any> => {
 
 export const getItem = async (itemKey: string): Promise<any> => {
 	try {
-		const data: any = await AsyncStorage.getItem("@" + itemKey);
+		const data: any = await AsyncStorage.getItem(itemKey);
 
 		return data ? JSON.parse(data) : null;
 	} catch (error) {
@@ -24,7 +24,7 @@ export const getItem = async (itemKey: string): Promise<any> => {
 
 export const deleteItem = async (itemKey: string): Promise<any> => {
 	try {
-		//
+		await AsyncStorage.removeItem(itemKey);
 	} catch (error) {
 		console.log("Async-storage-error: Delete item");
 	}

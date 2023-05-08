@@ -6,30 +6,43 @@ import { Feather } from "@expo/vector-icons";
 
 import { COLORS } from "theme";
 import { StackParamsList } from "types/navigation";
+import { Credentials } from "types/auth";
 
 type Props = {
 	formType: "" | "fresh-login" | "remembered-login";
-	handleSignIn: () => Promise<void>;
+	handleSignIn: (credentials: Credentials) => Promise<void>;
+	username?: string;
 };
 
 export const LoginForm: React.FC<Props> = (props) => {
 	// prettier-ignore
 	const navigation = useNavigation<NativeStackNavigationProp<StackParamsList>>();
 	const [passwordVisible, setPasswordVisible] = React.useState<boolean>(false);
+	const [formData, setFormData] = React.useState<Credentials>({ username: props.username ?? "", password: "" });
 
 	const togglePasswordVisibility = (): void => {
 		setPasswordVisible((prevState) => !prevState);
 	};
 
-	const handleFormSubmit = (): void => {
-		props.handleSignIn();
+	const handleFormSubmit = async (): Promise<void> => {
+		await props.handleSignIn(formData);
+	};
+
+	const handleFormInput = (key: string, value: string) => {
+		setFormData({ ...formData, [key]: value });
 	};
 
 	return (
 		<View style={styles.formContainer}>
 			{props.formType === "fresh-login" ? (
 				<View style={styles.inputContainer}>
-					<TextInput style={styles.inputBox} placeholder="Username" />
+					<TextInput
+						style={styles.inputBox}
+						placeholder="Username"
+						value={formData.username}
+						onChangeText={(v) => handleFormInput("username", v)}
+						autoCapitalize="none"
+					/>
 				</View>
 			) : null}
 			<View style={styles.inputContainer}>
@@ -37,23 +50,16 @@ export const LoginForm: React.FC<Props> = (props) => {
 					secureTextEntry={!passwordVisible}
 					style={styles.inputBox}
 					placeholder="Password"
+					value={formData.username}
+					onChangeText={(v) => handleFormInput("password", v)}
+					autoCapitalize="none"
 				/>
-				<Pressable
-					style={styles.togglePasswordVisibilityButton}
-					onPress={togglePasswordVisibility}
-				>
+				<Pressable style={styles.togglePasswordVisibilityButton} onPress={togglePasswordVisibility}>
 					<Text style={styles.togglePasswordVisibilityButtonLabel}>
-						<Feather
-							name={passwordVisible ? "eye" : "eye-off"}
-							size={24}
-							color="#898989"
-						/>
+						<Feather name={passwordVisible ? "eye" : "eye-off"} size={24} color="#898989" />
 					</Text>
 				</Pressable>
-				<Pressable
-					style={styles.forgotPasswordButton}
-					onPress={() => navigation.navigate("FORGOT_PASSWORD_SCREEN")}
-				>
+				<Pressable style={styles.forgotPasswordButton} onPress={() => navigation.navigate("FORGOT_PASSWORD_SCREEN")}>
 					<Text style={styles.forgotPasswordButtonLabel}>Forgot?</Text>
 				</Pressable>
 			</View>
