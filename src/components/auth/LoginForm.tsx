@@ -14,22 +14,35 @@ type Props = {
 	username?: string;
 };
 
+type FormState = {
+	credentials: Credentials;
+	errors: {
+		username: {};
+		password: {};
+	};
+	isSubmitting: false;
+};
+
 export const LoginForm: React.FC<Props> = (props) => {
 	// prettier-ignore
 	const navigation = useNavigation<NativeStackNavigationProp<StackParamsList>>();
 	const [passwordVisible, setPasswordVisible] = React.useState<boolean>(false);
-	const [formData, setFormData] = React.useState<Credentials>({ username: props.username ?? "", password: "" });
+	const [form, setForm] = React.useState<FormState>({
+		credentials: { username: "", password: "" },
+		errors: { username: {}, password: {} },
+		isSubmitting: false,
+	});
 
 	const togglePasswordVisibility = (): void => {
 		setPasswordVisible((prevState) => !prevState);
 	};
 
 	const handleFormSubmit = async (): Promise<void> => {
-		await props.handleSignIn(formData);
+		await props.handleSignIn({ username: "", password: "" });
 	};
 
 	const handleFormInput = (key: string, value: string) => {
-		setFormData({ ...formData, [key]: value });
+		// console.log({ key, value });
 	};
 
 	return (
@@ -39,7 +52,7 @@ export const LoginForm: React.FC<Props> = (props) => {
 					<TextInput
 						style={styles.inputBox}
 						placeholder="Username"
-						value={formData.username}
+						// value={formData.username}
 						onChangeText={(v) => handleFormInput("username", v)}
 						autoCapitalize="none"
 					/>
@@ -50,7 +63,7 @@ export const LoginForm: React.FC<Props> = (props) => {
 					secureTextEntry={!passwordVisible}
 					style={styles.inputBox}
 					placeholder="Password"
-					value={formData.username}
+					// value={formData.username}
 					onChangeText={(v) => handleFormInput("password", v)}
 					autoCapitalize="none"
 				/>
