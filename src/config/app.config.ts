@@ -1,1 +1,3 @@
-export const APP_CONFIG = {};
+export const APP_CONFIG = {
+	MAINTENANCE_MODE: false,
+};

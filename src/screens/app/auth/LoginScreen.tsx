@@ -4,7 +4,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { BaseLayout, BrandLogo, LoginForm } from "components";
 import { StackParamsList } from "types/navigation";
-import { Credentials } from "types/auth";
+import { TCredentials } from "types/auth";
 import * as storage from "libs/async-storage.lib";
 import * as secure_data from "libs/secure-data.lib";
 
@@ -15,13 +15,12 @@ export const LoginScreen: React.FC<Props> = (props) => {
 	const [formType, setFormType] = React.useState<FormTypes>("");
 	const [username, setUsername] = React.useState<string>("");
 
-	const handleSignIn = async (credentials: Credentials): Promise<void> => {
+	const handleSignIn = async (credentials: TCredentials): Promise<void> => {
 		props.navigation.navigate("HOME_SCREEN");
 	};
 
 	const getSavedAccount = async (): Promise<void> => {
 		await storage.getItem("@user").then((r: any) => {
-			console.log(r);
 			if (r !== null) {
 				setFormType("remembered-login");
 				setUsername(r.username);
