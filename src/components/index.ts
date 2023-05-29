@@ -11,4 +11,4 @@ export { BrandLogo } from "components/common/BrandLogo";
 /**
  * Auth Components
  */
-export * from "components/auth";
+export * from "components/features/auth";

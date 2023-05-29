@@ -6,20 +6,16 @@ import { Feather } from "@expo/vector-icons";
 
 import { COLORS } from "theme";
 import { StackParamsList } from "types/navigation";
-import { Credentials } from "types/auth";
+import { TCredentials } from "types/auth";
 
 type Props = {
 	formType: "" | "fresh-login" | "remembered-login";
-	handleSignIn: (credentials: Credentials) => Promise<void>;
+	handleSignIn: (credentials: TCredentials) => Promise<void>;
 	username?: string;
 };
 
 type FormState = {
-	credentials: Credentials;
-	errors: {
-		username: {};
-		password: {};
-	};
+	credentials: TCredentials;
 	isSubmitting: false;
 };
 
@@ -29,7 +25,6 @@ export const LoginForm: React.FC<Props> = (props) => {
 	const [passwordVisible, setPasswordVisible] = React.useState<boolean>(false);
 	const [form, setForm] = React.useState<FormState>({
 		credentials: { username: "", password: "" },
-		errors: { username: {}, password: {} },
 		isSubmitting: false,
 	});
 

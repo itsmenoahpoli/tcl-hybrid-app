@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { BaseLayout, BrandLogo, LoginForm } from "components";
+import { AuthService } from "services";
 import { StackParamsList } from "types/navigation";
 import { TCredentials } from "types/auth";
 import * as storage from "libs/async-storage.lib";
@@ -10,6 +11,7 @@ import * as secure_data from "libs/secure-data.lib";
 
 type Props = NativeStackScreenProps<StackParamsList, "LOGIN_SCREEN">;
 type FormTypes = "" | "fresh-login" | "remembered-login";
+const AUTH_SERVICE = new AuthService();
 
 export const LoginScreen: React.FC<Props> = (props) => {
 	const [formType, setFormType] = React.useState<FormTypes>("");
@@ -45,7 +47,7 @@ export const LoginScreen: React.FC<Props> = (props) => {
 					) : null}
 
 					{formType === "remembered-login" ? (
-						<>
+						<React.Fragment>
 							<View style={styles.avatar}>
 								<Text style={styles.avatarLabel}>PP</Text>
 							</View>
@@ -53,7 +55,7 @@ export const LoginScreen: React.FC<Props> = (props) => {
 							<Text style={styles.titleText}>
 								{secure_data.maskName("Patrick") + " " + secure_data.maskName("Policarpio")}
 							</Text>
-						</>
+						</React.Fragment>
 					) : null}
 
 					<LoginForm formType={formType} handleSignIn={handleSignIn} username={username} />

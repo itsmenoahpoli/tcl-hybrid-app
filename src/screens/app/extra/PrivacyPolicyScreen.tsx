@@ -23,7 +23,96 @@ export const PrivacyPolicyScreen = () => {
 						eaque aperiam sapiente rem doloribus ducimus, fugit, possimus aspernatur eligendi aliquam nemo quasi quas
 						ad.
 					</Text>
-
+					<Text style={styles.textContent}>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe reprehenderit consequuntur ullam atque illum,
+						in obcaecati eum, iure corrupti ratione error ea quis? Dolores quia optio qui, recusandae dolore voluptate
+						sit corporis adipisci nesciunt magni atque fugit ratione nihil, iusto placeat iste consequuntur
+						reprehenderit voluptatem distinctio quos vero tempora voluptatibus nostrum. Ab maiores asperiores voluptatem
+						vitae obcaecati iure laudantium, eaque quam magnam perferendis deleniti ipsam? Dolorum qui iure quae cumque,
+						magnam perferendis praesentium excepturi minus quam, odit reiciendis. Illum voluptatum placeat nemo
+						assumenda nisi enim accusamus, veniam eius cumque quidem tenetur repellat aut id laborum unde necessitatibus
+						doloribus tempore? Voluptate quis quos natus placeat incidunt molestias quaerat qui obcaecati dolorum
+						tempore quas quam culpa, eligendi, nihil at voluptatem, officiis ab? Quod tempore, similique recusandae quam
+						sit provident, rem aspernatur labore iste ut accusantium ipsum modi atque adipisci quis velit! Quidem,
+						dolores. Itaque amet vitae necessitatibus voluptatibus ducimus optio quo sit. Consectetur accusantium
+						aperiam at, totam, sit ab sed saepe rerum unde minima deleniti porro quae nisi, perferendis architecto
+						sapiente voluptatum commodi dolorum aut! Perferendis, necessitatibus!
+					</Text>
+					<Text style={styles.textContent}>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe reprehenderit consequuntur ullam atque illum,
+						in obcaecati eum, iure corrupti ratione error ea quis? Dolores quia optio qui, recusandae dolore voluptate
+						sit corporis adipisci nesciunt magni atque fugit ratione nihil, iusto placeat iste consequuntur
+						reprehenderit voluptatem distinctio quos vero tempora voluptatibus nostrum. Ab maiores asperiores voluptatem
+						vitae obcaecati iure laudantium, eaque quam magnam perferendis deleniti ipsam? Dolorum qui iure quae cumque,
+						magnam perferendis praesentium excepturi minus quam, odit reiciendis. Illum voluptatum placeat nemo
+						assumenda nisi enim accusamus, veniam eius cumque quidem tenetur repellat aut id laborum unde necessitatibus
+						doloribus tempore? Voluptate quis quos natus placeat incidunt molestias quaerat qui obcaecati dolorum
+						tempore quas quam culpa, eligendi, nihil at voluptatem, officiis ab? Quod tempore, similique recusandae quam
+						sit provident, rem aspernatur labore iste ut accusantium ipsum modi atque adipisci quis velit! Quidem,
+						dolores. Itaque amet vitae necessitatibus voluptatibus ducimus optio quo sit. Consectetur accusantium
+						aperiam at, totam, sit ab sed saepe rerum unde minima deleniti porro quae nisi, perferendis architecto
+						sapiente voluptatum commodi dolorum aut! Perferendis, necessitatibus!
+					</Text>
+					<Text style={styles.textContent}>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe reprehenderit consequuntur ullam atque illum,
+						in obcaecati eum, iure corrupti ratione error ea quis? Dolores quia optio qui, recusandae dolore voluptate
+						sit corporis adipisci nesciunt magni atque fugit ratione nihil, iusto placeat iste consequuntur
+						reprehenderit voluptatem distinctio quos vero tempora voluptatibus nostrum. Ab maiores asperiores voluptatem
+						vitae obcaecati iure laudantium, eaque quam magnam perferendis deleniti ipsam? Dolorum qui iure quae cumque,
+						magnam perferendis praesentium excepturi minus quam, odit reiciendis. Illum voluptatum placeat nemo
+						assumenda nisi enim accusamus, veniam eius cumque quidem tenetur repellat aut id laborum unde necessitatibus
+						doloribus tempore? Voluptate quis quos natus placeat incidunt molestias quaerat qui obcaecati dolorum
+						tempore quas quam culpa, eligendi, nihil at voluptatem, officiis ab? Quod tempore, similique recusandae quam
+						sit provident, rem aspernatur labore iste ut accusantium ipsum modi atque adipisci quis velit! Quidem,
+						dolores. Itaque amet vitae necessitatibus voluptatibus ducimus optio quo sit. Consectetur accusantium
+						aperiam at, totam, sit ab sed saepe rerum unde minima deleniti porro quae nisi, perferendis architecto
+						sapiente voluptatum commodi dolorum aut! Perferendis, necessitatibus!
+					</Text>
+					<Text style={styles.textContent}>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe reprehenderit consequuntur ullam atque illum,
+						in obcaecati eum, iure corrupti ratione error ea quis? Dolores quia optio qui, recusandae dolore voluptate
+						sit corporis adipisci nesciunt magni atque fugit ratione nihil, iusto placeat iste consequuntur
+						reprehenderit voluptatem distinctio quos vero tempora voluptatibus nostrum. Ab maiores asperiores voluptatem
+						vitae obcaecati iure laudantium, eaque quam magnam perferendis deleniti ipsam? Dolorum qui iure quae cumque,
+						magnam perferendis praesentium excepturi minus quam, odit reiciendis. Illum voluptatum placeat nemo
+						assumenda nisi enim accusamus, veniam eius cumque quidem tenetur repellat aut id laborum unde necessitatibus
+						doloribus tempore? Voluptate quis quos natus placeat incidunt molestias quaerat qui obcaecati dolorum
+						tempore quas quam culpa, eligendi, nihil at voluptatem, officiis ab? Quod tempore, similique recusandae quam
+						sit provident, rem aspernatur labore iste ut accusantium ipsum modi atque adipisci quis velit! Quidem,
+						dolores. Itaque amet vitae necessitatibus voluptatibus ducimus optio quo sit. Consectetur accusantium
+						aperiam at, totam, sit ab sed saepe rerum unde minima deleniti porro quae nisi, perferendis architecto
+						sapiente voluptatum commodi dolorum aut! Perferendis, necessitatibus!
+					</Text>
+					<Text style={styles.textContent}>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe reprehenderit consequuntur ullam atque illum,
+						in obcaecati eum, iure corrupti ratione error ea quis? Dolores quia optio qui, recusandae dolore voluptate
+						sit corporis adipisci nesciunt magni atque fugit ratione nihil, iusto placeat iste consequuntur
+						reprehenderit voluptatem distinctio quos vero tempora voluptatibus nostrum. Ab maiores asperiores voluptatem
+						vitae obcaecati iure laudantium, eaque quam magnam perferendis deleniti ipsam? Dolorum qui iure quae cumque,
+						magnam perferendis praesentium excepturi minus quam, odit reiciendis. Illum voluptatum placeat nemo
+						assumenda nisi enim accusamus, veniam eius cumque quidem tenetur repellat aut id laborum unde necessitatibus
+						doloribus tempore? Voluptate quis quos natus placeat incidunt molestias quaerat qui obcaecati dolorum
+						tempore quas quam culpa, eligendi, nihil at voluptatem, officiis ab? Quod tempore, similique recusandae quam
+						sit provident, rem aspernatur labore iste ut accusantium ipsum modi atque adipisci quis velit! Quidem,
+						dolores. Itaque amet vitae necessitatibus voluptatibus ducimus optio quo sit. Consectetur accusantium
+						aperiam at, totam, sit ab sed saepe rerum unde minima deleniti porro quae nisi, perferendis architecto
+						sapiente voluptatum commodi dolorum aut! Perferendis, necessitatibus!
+					</Text>
+					<Text style={styles.textContent}>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe reprehenderit consequuntur ullam atque illum,
+						in obcaecati eum, iure corrupti ratione error ea quis? Dolores quia optio qui, recusandae dolore voluptate
+						sit corporis adipisci nesciunt magni atque fugit ratione nihil, iusto placeat iste consequuntur
+						reprehenderit voluptatem distinctio quos vero tempora voluptatibus nostrum. Ab maiores asperiores voluptatem
+						vitae obcaecati iure laudantium, eaque quam magnam perferendis deleniti ipsam? Dolorum qui iure quae cumque,
+						magnam perferendis praesentium excepturi minus quam, odit reiciendis. Illum voluptatum placeat nemo
+						assumenda nisi enim accusamus, veniam eius cumque quidem tenetur repellat aut id laborum unde necessitatibus
+						doloribus tempore? Voluptate quis quos natus placeat incidunt molestias quaerat qui obcaecati dolorum
+						tempore quas quam culpa, eligendi, nihil at voluptatem, officiis ab? Quod tempore, similique recusandae quam
+						sit provident, rem aspernatur labore iste ut accusantium ipsum modi atque adipisci quis velit! Quidem,
+						dolores. Itaque amet vitae necessitatibus voluptatibus ducimus optio quo sit. Consectetur accusantium
+						aperiam at, totam, sit ab sed saepe rerum unde minima deleniti porro quae nisi, perferendis architecto
+						sapiente voluptatum commodi dolorum aut! Perferendis, necessitatibus!
+					</Text>
 					<Text style={styles.textContent}>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe reprehenderit consequuntur ullam atque illum,
 						in obcaecati eum, iure corrupti ratione error ea quis? Dolores quia optio qui, recusandae dolore voluptate
