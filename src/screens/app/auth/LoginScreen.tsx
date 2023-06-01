@@ -15,7 +15,7 @@ const AUTH_SERVICE = new AuthService();
 
 export const LoginScreen: React.FC<Props> = (props) => {
 	const [formType, setFormType] = React.useState<FormTypes>("");
-	const [username, setUsername] = React.useState<string>("");
+	const [name, setName] = React.useState<string>("");
 
 	const handleSignIn = async (credentials: TCredentials): Promise<void> => {
 		await AUTH_SERVICE.login(credentials).then((result) => {
@@ -29,7 +29,7 @@ export const LoginScreen: React.FC<Props> = (props) => {
 		await storage.getItem("@user").then((r: any) => {
 			if (r !== null) {
 				setFormType("remembered-login");
-				setUsername(r.username);
+				setName(r.name);
 				return;
 			}
 			setFormType("fresh-login");
@@ -62,7 +62,7 @@ export const LoginScreen: React.FC<Props> = (props) => {
 						</React.Fragment>
 					) : null}
 
-					<LoginForm formType={formType} handleSignIn={handleSignIn} username={username} />
+					<LoginForm formType={formType} handleSignIn={handleSignIn} />
 				</View>
 			</View>
 		</BaseLayout>

@@ -11,7 +11,6 @@ import { TCredentials } from "types/auth";
 type Props = {
 	formType: "" | "fresh-login" | "remembered-login";
 	handleSignIn: (credentials: TCredentials) => Promise<void>;
-	username?: string;
 };
 
 export const LoginForm: React.FC<Props> = (props) => {
