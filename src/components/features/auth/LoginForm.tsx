@@ -14,30 +14,22 @@ type Props = {
 	username?: string;
 };
 
-type FormState = {
-	credentials: TCredentials;
-	isSubmitting: false;
-};
-
 export const LoginForm: React.FC<Props> = (props) => {
 	// prettier-ignore
 	const navigation = useNavigation<NativeStackNavigationProp<StackParamsList>>();
 	const [passwordVisible, setPasswordVisible] = React.useState<boolean>(false);
-	const [form, setForm] = React.useState<FormState>({
-		credentials: { username: "", password: "" },
-		isSubmitting: false,
-	});
+	const [form, setForm] = React.useState<TCredentials>({ email: "ppolicarpio@domain.com", password: "1234567890" });
 
 	const togglePasswordVisibility = (): void => {
 		setPasswordVisible((prevState) => !prevState);
 	};
 
 	const handleFormSubmit = async (): Promise<void> => {
-		await props.handleSignIn({ username: "", password: "" });
+		await props.handleSignIn(form);
 	};
 
 	const handleFormInput = (key: string, value: string) => {
-		// console.log({ key, value });
+		setForm({ ...form, [key]: value });
 	};
 
 	return (
@@ -46,9 +38,9 @@ export const LoginForm: React.FC<Props> = (props) => {
 				<View style={styles.inputContainer}>
 					<TextInput
 						style={styles.inputBox}
-						placeholder="Username"
-						// value={formData.username}
-						onChangeText={(v) => handleFormInput("username", v)}
+						placeholder="Email"
+						defaultValue={form.email}
+						onChangeText={(v) => handleFormInput("email", v)}
 						autoCapitalize="none"
 					/>
 				</View>
@@ -58,7 +50,7 @@ export const LoginForm: React.FC<Props> = (props) => {
 					secureTextEntry={!passwordVisible}
 					style={styles.inputBox}
 					placeholder="Password"
-					// value={formData.username}
+					defaultValue={form.password}
 					onChangeText={(v) => handleFormInput("password", v)}
 					autoCapitalize="none"
 				/>
@@ -68,7 +60,7 @@ export const LoginForm: React.FC<Props> = (props) => {
 					</Text>
 				</Pressable>
 				<Pressable style={styles.forgotPasswordButton} onPress={() => navigation.navigate("FORGOT_PASSWORD_SCREEN")}>
-					<Text style={styles.forgotPasswordButtonLabel}>Forgot?</Text>
+					<Text style={styles.forgotPasswordButtonLabel}>Forgot Password?</Text>
 				</Pressable>
 			</View>
 			<View style={styles.inputContainer}>
@@ -108,7 +100,7 @@ const styles = StyleSheet.create({
 	},
 	forgotPasswordButtonLabel: {
 		fontFamily: "Lato-Regular",
-		color: "#77a6f2",
+		color: COLORS.primary,
 	},
 	loginButton: {
 		backgroundColor: COLORS.primary,

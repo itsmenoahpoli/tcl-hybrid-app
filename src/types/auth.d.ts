@@ -1,5 +1,5 @@
 export type TCredentials = {
-	username: string;
+	email: string;
 	password: string;
 };
 

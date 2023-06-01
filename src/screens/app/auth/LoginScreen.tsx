@@ -18,7 +18,11 @@ export const LoginScreen: React.FC<Props> = (props) => {
 	const [username, setUsername] = React.useState<string>("");
 
 	const handleSignIn = async (credentials: TCredentials): Promise<void> => {
-		props.navigation.navigate("HOME_SCREEN");
+		await AUTH_SERVICE.login(credentials).then((result) => {
+			if (result.isAuthSuccess) {
+				props.navigation.navigate("HOME_SCREEN");
+			}
+		});
 	};
 
 	const getSavedAccount = async (): Promise<void> => {
