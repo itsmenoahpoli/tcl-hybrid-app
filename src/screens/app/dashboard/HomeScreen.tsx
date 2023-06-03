@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Pressable, Dimensions, StyleSheet } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { BaseLayout } from "components";
 import { COLORS } from "theme";
@@ -39,10 +39,16 @@ const AccountOverview: React.FC = () => {
 
 				<View style={styles.accountOverviewContainerButtonsContainer}>
 					<Pressable style={styles.accountOverviewContainerBalanceContainerButton}>
-						<Text style={styles.accountOverviewContainerBalanceContainerButtonLabel}>Invest</Text>
+						<View style={styles.accountOverviewContainerBalanceContainerButtonContent}>
+							<MaterialCommunityIcons name="arrow-bottom-left-thin-circle-outline" size={20} color="#fff" />
+							<Text style={styles.accountOverviewContainerBalanceContainerButtonLabel}>Invest</Text>
+						</View>
 					</Pressable>
 					<Pressable style={styles.accountOverviewContainerBalanceContainerButton}>
-						<Text style={styles.accountOverviewContainerBalanceContainerButtonLabel}>Widthdraw</Text>
+						<View style={styles.accountOverviewContainerBalanceContainerButtonContent}>
+							<MaterialCommunityIcons name="arrow-top-right-thin-circle-outline" size={20} color="#fff" />
+							<Text style={styles.accountOverviewContainerBalanceContainerButtonLabel}>Widthdraw</Text>
+						</View>
 					</Pressable>
 				</View>
 			</View>
@@ -51,7 +57,11 @@ const AccountOverview: React.FC = () => {
 };
 
 const TransactionsList: React.FC = () => {
-	return <View></View>;
+	return (
+		<View style={styles.transactionsListContainer}>
+			<Text style={styles.transactionsListContainerTitleText}>Transactions</Text>
+		</View>
+	);
 };
 
 const FooterNav: React.FC = () => {
@@ -122,7 +132,7 @@ const styles = StyleSheet.create({
 	accountOverviewContainerTitleText: {
 		fontFamily: "Lato-Bold",
 		fontSize: 20,
-		color: "#555",
+		color: "#333",
 	},
 	accountOverviewContainerBalanceContainer: {
 		backgroundColor: "#f1f1f1",
@@ -149,20 +159,35 @@ const styles = StyleSheet.create({
 		marginTop: 20,
 		display: "flex",
 		flexDirection: "row",
-		gap: 15,
+		gap: 5,
 	},
 	accountOverviewContainerBalanceContainerButton: {
 		backgroundColor: COLORS.primary,
 		width: 160,
 		paddingVertical: 13,
 		paddingHorizontal: 13,
-		borderRadius: 20,
+		borderRadius: 18,
+	},
+	accountOverviewContainerBalanceContainerButtonContent: {
+		display: "flex",
+		flexDirection: "row",
+		justifyContent: "center",
+		alignItems: "center",
+		gap: 5,
 	},
 	accountOverviewContainerBalanceContainerButtonLabel: {
 		fontFamily: "Lato-Regular",
 		fontSize: 15,
 		color: "#fff",
 		textAlign: "center",
+	},
+	transactionsListContainer: {
+		marginTop: 20,
+	},
+	transactionsListContainerTitleText: {
+		fontFamily: "Lato-Bold",
+		fontSize: 20,
+		color: "#333",
 	},
 	footerNav: {
 		width: width,
