@@ -100,7 +100,13 @@ const TransactionsList: React.FC = () => {
 };
 
 const FooterNav: React.FC = () => {
-	return <View style={styles.footerNav}></View>;
+	return (
+		<View style={styles.footerNav}>
+			<Pressable>
+				<Text></Text>
+			</Pressable>
+		</View>
+	);
 };
 
 export const HomeScreen: React.FC = () => {
@@ -256,7 +262,7 @@ const styles = StyleSheet.create({
 	},
 	transactionsListViewAllTransactionsButton: {
 		alignSelf: "center",
-		marginTop: 20,
+		marginTop: 10,
 	},
 	transactionsListViewAllTransactionsButtonLabel: {
 		fontFamily: "Lato-Regular",

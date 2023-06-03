@@ -2,7 +2,7 @@ import React from "react";
 import { Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { View, Pressable, ScrollView, StyleSheet } from "react-native";
+import { View, Text, Pressable, ScrollView, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -16,7 +16,7 @@ type Props = {
 	isScrollable?: boolean;
 };
 
-const { height } = Dimensions.get("screen");
+const { height, width } = Dimensions.get("screen");
 
 export const BaseLayout = (props: Props) => {
 	const navigation = useNavigation<NativeStackNavigationProp<StackParamsList>>();
@@ -31,6 +31,9 @@ export const BaseLayout = (props: Props) => {
 			<SafeAreaView style={styles.container}>
 				<StatusBar style="auto" backgroundColor="#fcfcfc" />
 				<ScrollView scrollEnabled={props.isScrollable ?? false}>
+					{/* <View style={styles.alertBannerContainer}>
+						<Text style={styles.alertBannerContainerText}>Account not yet verified</Text>
+					</View> */}
 					<View style={mainContainerStyles}>
 						{props.hasBackButton ? (
 							<View style={styles.backContainer}>
@@ -60,4 +63,16 @@ const styles = StyleSheet.create({
 		paddingTop: 30,
 		paddingHorizontal: 20,
 	},
+	// alertBannerContainer: {
+	// 	height: 30,
+	// 	width: width,
+	// 	backgroundColor: "lightcoral",
+	// 	alignItems: "center",
+	// 	justifyContent: "center",
+	// },
+	// alertBannerContainerText: {
+	// 	fontFamily: "Lato-Regular",
+	// 	fontSize: 15,
+	// 	color: "#fff",
+	// },
 });
