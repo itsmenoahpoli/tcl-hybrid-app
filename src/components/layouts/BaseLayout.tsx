@@ -1,4 +1,5 @@
 import React from "react";
+import { Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { View, Pressable, ScrollView, StyleSheet } from "react-native";
@@ -11,11 +12,15 @@ import { StackParamsList } from "types/navigation";
 type Props = {
 	children: React.ReactNode;
 	hasBackButton?: boolean;
+	hasFooter?: boolean;
 	isScrollable?: boolean;
 };
 
+const { height } = Dimensions.get("screen");
+
 export const BaseLayout = (props: Props) => {
 	const navigation = useNavigation<NativeStackNavigationProp<StackParamsList>>();
+	const mainContainerStyles = { ...styles.container, height: props.hasFooter ? height - 80 : height };
 
 	const handleGoBack = (): void => {
 		navigation.goBack();
@@ -24,9 +29,9 @@ export const BaseLayout = (props: Props) => {
 	return (
 		<React.Fragment>
 			<SafeAreaView style={styles.container}>
-				<StatusBar style="auto" />
+				<StatusBar style="auto" backgroundColor="#fcfcfc" />
 				<ScrollView scrollEnabled={props.isScrollable ?? false}>
-					<View style={styles.container}>
+					<View style={mainContainerStyles}>
 						{props.hasBackButton ? (
 							<View style={styles.backContainer}>
 								<Pressable onPress={handleGoBack}>
@@ -46,6 +51,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: "white",
+		position: "relative",
 	},
 	scrollContainer: {
 		marginBottom: 30,

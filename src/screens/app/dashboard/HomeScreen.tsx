@@ -60,6 +60,41 @@ const TransactionsList: React.FC = () => {
 	return (
 		<View style={styles.transactionsListContainer}>
 			<Text style={styles.transactionsListContainerTitleText}>Transactions</Text>
+			<View style={styles.transactionsListBox}>
+				<View style={styles.transactionsListBoxItem}>
+					<View>
+						<Text style={styles.transactionsListBoxItemTitleText}>Invest</Text>
+						<Text style={styles.transactionsListBoxItemText}>June 3, 2023 8:23PM</Text>
+						<Text style={styles.transactionsListBoxItemText}>Pending</Text>
+					</View>
+					<View>
+						<Text style={styles.transactionsListBoxItemTitleText}>+ 5,000.00</Text>
+					</View>
+				</View>
+				<View style={styles.transactionsListBoxItem}>
+					<View>
+						<Text style={styles.transactionsListBoxItemTitleText}>Invest</Text>
+						<Text style={styles.transactionsListBoxItemText}>June 7, 2023 10:51AM</Text>
+						<Text style={styles.transactionsListBoxItemText}>Pending</Text>
+					</View>
+					<View>
+						<Text style={styles.transactionsListBoxItemTitleText}>+ 18,000.00</Text>
+					</View>
+				</View>
+				<View style={{ ...styles.transactionsListBoxItem, borderBottomWidth: 0 }}>
+					<View>
+						<Text style={styles.transactionsListBoxItemTitleText}>Invest</Text>
+						<Text style={styles.transactionsListBoxItemText}>June 25, 2023 1:48PM</Text>
+						<Text style={styles.transactionsListBoxItemText}>Pending</Text>
+					</View>
+					<View>
+						<Text style={styles.transactionsListBoxItemTitleText}>+ 40,000.00</Text>
+					</View>
+				</View>
+			</View>
+			<Pressable style={styles.transactionsListViewAllTransactionsButton}>
+				<Text style={styles.transactionsListViewAllTransactionsButtonLabel}>View All Transactions</Text>
+			</Pressable>
 		</View>
 	);
 };
@@ -70,13 +105,13 @@ const FooterNav: React.FC = () => {
 
 export const HomeScreen: React.FC = () => {
 	return (
-		<BaseLayout>
+		<BaseLayout hasFooter>
 			<View style={styles.container}>
 				<HeaderNav />
 				<AccountOverview />
 				<TransactionsList />
-				{/* <FooterNav /> */}
 			</View>
+			<FooterNav />
 		</BaseLayout>
 	);
 };
@@ -84,10 +119,9 @@ export const HomeScreen: React.FC = () => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		height: "100%",
+		height: height,
 		paddingHorizontal: 20,
 		backgroundColor: "#fcfcfc",
-		position: "relative",
 	},
 	headerNav: {
 		height: 80,
@@ -135,7 +169,7 @@ const styles = StyleSheet.create({
 		color: "#333",
 	},
 	accountOverviewContainerBalanceContainer: {
-		backgroundColor: "#f1f1f1",
+		backgroundColor: "#eee",
 		height: 200,
 		marginTop: 10,
 		paddingVertical: 20,
@@ -182,20 +216,62 @@ const styles = StyleSheet.create({
 		textAlign: "center",
 	},
 	transactionsListContainer: {
-		marginTop: 20,
+		marginTop: 30,
+		flex: 1,
 	},
 	transactionsListContainerTitleText: {
 		fontFamily: "Lato-Bold",
 		fontSize: 20,
 		color: "#333",
+		marginBottom: 10,
+	},
+	transactionsListBox: {
+		backgroundColor: "#fff",
+		height: "60%",
+		display: "flex",
+		flexDirection: "column",
+		borderWidth: 1,
+		borderRadius: 10,
+		borderColor: "#eee",
+		marginVertical: 10,
+	},
+	transactionsListBoxItem: {
+		height: "33.3%",
+		paddingHorizontal: 20,
+		borderBottomWidth: 1,
+		borderBottomColor: "#eee",
+		display: "flex",
+		flexDirection: "row",
+		justifyContent: "space-between",
+		alignItems: "center",
+	},
+	transactionsListBoxItemTitleText: {
+		fontFamily: "Lato-Bold",
+		fontSize: 16,
+	},
+	transactionsListBoxItemText: {
+		fontFamily: "Lato-Regular",
+		fontSize: 15,
+		marginTop: 4,
+	},
+	transactionsListViewAllTransactionsButton: {
+		alignSelf: "center",
+		marginTop: 20,
+	},
+	transactionsListViewAllTransactionsButtonLabel: {
+		fontFamily: "Lato-Regular",
+		fontSize: 16,
+		color: "blue",
 	},
 	footerNav: {
 		width: width,
-		height: 70,
+		height: 80,
 		position: "absolute",
+		left: 0,
+		right: 0,
 		bottom: 0,
-		backgroundColor: "#ccc",
-		borderTopColor: "#ccc",
+		backgroundColor: "#f1f1f1",
+		borderTopColor: "#f1f1f1",
 		borderTopWidth: 1,
 	},
 });

@@ -31,7 +31,7 @@ export const LoginScreen: React.FC<Props> = (props) => {
 				setFormType("remembered-login");
 				setName(r.name);
 
-				props.navigation.navigate("HOME_SCREEN");
+				// props.navigation.navigate("HOME_SCREEN");
 				return;
 			}
 			setFormType("fresh-login");
