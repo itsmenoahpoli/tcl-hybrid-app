@@ -13,9 +13,9 @@ export class HttpService {
 			baseURL: APP_CONFIG.API_BASEURL,
 		});
 
-		this.http.interceptors.request.use();
+		// this.http.interceptors.request.use();
 
-		this.http.interceptors.response.use();
+		// this.http.interceptors.response.use();
 	}
 
 	protected get httpClient() {
